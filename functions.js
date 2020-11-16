@@ -148,10 +148,15 @@ const updateContr = (i) => {
 };
 
 const deleteContr = (i) => {
-    let mis_peliculas = JSON.parse(localStorage.mis_peliculas);     // ALUMNA     
-    mis_peliculas.splice(i,1);                                      // ALUMNA
-    localStorage.mis_peliculas = JSON.stringify(mis_peliculas);     // ALUMNA
-    indexContr();                                                   // ALUMNA
+    let mis_peliculas = JSON.parse(localStorage.mis_peliculas);     // ALUMNA
+    let msg = confirm("¿Desea borrar la oelicula");                 // ALUMNA
+    if (msg) {                                                      // ALUMNA
+        mis_peliculas.splice(i,1);                                  // ALUMNA
+        localStorage.mis_peliculas = JSON.stringify(mis_peliculas); // ALUMNA
+        indexContr();
+    } else {
+        indexContr();                                               // ALUMNA
+    }
 };
 
 const resetContr = () => {
